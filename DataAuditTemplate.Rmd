@@ -1,8 +1,8 @@
 ---
-title: "Data Audit & Overview Template" # Replace with something more relevant
-author: "Your name here"
-date: "`r format(Sys.Date(), '%d %B %Y')`" # What does this do? What is Sys.Date()?
-
+title: "Average Screen Time among children" # Replace with something more relevant
+author: "Ahmed Mohy Ud Din Khan Lodhi"
+date: "`r format(Sys.Date(), '%d %B %Y')`" # What does this do? What is Sys.Date()? 
+It returns todays date from our computer in text form %d is the date %B is the month number and the %Y is the year.
 format: 
   gfm: 
     toc: true # What is TOC in this scenerio? Render this template and see what happens when you turn it to false.
@@ -40,8 +40,7 @@ This document will live in your final project folder in your repository alongsid
 
 # 1: Project Overview
 
-[Two or three sentences covering your hypothesis or what you are building. Assume your reader has not seen your proposal.]
-
+My Projects built on data about childrens screen time from young age to teenagers and how it affects them and at what age there screen differs as in they increase or decrease.
 -----
 
 # 2: Data Sources
@@ -52,65 +51,89 @@ This document will live in your final project folder in your repository alongsid
 
 ## 2.1 Summary of sources
 
-\[Fill in one row per source you investigated. Include the ones you rejected in the `Using?` column. This table is the quick reference your reader checks before reading anything else. A clear table will give a reader a good idea of what the focus is beyond the overview.\]
-
 ```{r source-summary, echo=FALSE}
 sources <- tribble(
   ~Source,            ~Producer,          ~Format,  ~Coverage,          ~Using,
-  "[source name]",    "[organization]",   "[CSV]",  "[place, years]",   "Yes",
-  "[source name]",    "[organization]",   "[PDF]",  "[place, years]",   "Yes",
-  "[source name]",    "[organization]",   "[API]",  "[place, years]",   "No, see 2.4"
+  "[Screen time, social media use, physical activity and depressive symptoms (CDI) in Brazilian schoolchildren (n = 320)]",    "[Flavia Schaidhauer (Mendeley Data)]",   "[CSV]",  "[Brazil, 2024-2025, ages 7-14]",   "Yes",
+  "[Average Daily Screen Time for Children]",    "[ak0212 (Kaggle Uploader)]",   "[CSV]",  "[not stated, age 5-15]",   "Yes",
+  "[Children's screen time, 2 hours per day or less (Table 13-10-0799-01)]",    "[Statistics Canada (CCHS - Nutrition)]",   "[CSV]",  "[Canada and provinces, 2015, ages 6-17]",   "No"
 )
 
 knitr::kable(sources)
 ```
 
-## 2.2.1: \[name 1\]
+## 2.2.1: \[Mendeley Data\]
 
-**Producer and authority.** \[Who made this dataset, under what grant, mandate, legal authority, initiative, etc. Ex: If a municipality publishes it, which department, and were they required to? If a researcher published it, what grant was it under? If it's an open source publication from an organization, do they describe why it is published?\]
+**Producer and authority.** \[This dataset was published by Mendeley data, which is an online research data repository. They used this platform to publish and share datasets. The dataset comes from a research study involving Brazillian schoolchildren and follows certain protocols and ethical standards. However any kind of research grant or funding could not be accessed through this webpage. The datasets author is flavia Schaidhauer. \]
 
-**Original Dataset Purpose.** \[Why was this collected? The original author likely didn't have the exact same research question as you.\]
+**Original Dataset Purpose.** \[This was to investigate a childs reltionship between daily screen time, social media use and depressive symptoms and how it was associated to their mental health.\]
 
-**Collection method.** \[How did the values collected get into the file? Sensor, survey, administrative by-product, manual entry, something nobody can tell you? Remember that no answer found is still and answer!\]
+**Collection method.** \[The data was collected through a cross-sectional study involving 320 school children in brazil between the year of 2024 to 2025 regarding information about their screen time, social media usage and physical activity. However, our dataset does not explicitly explain how it was retrieved either from students or their devices directly.\]
 
-**Coverage and resolution.** \[Spatial extent, temporal range, reporting frequency, unit of observation.\]
+**Coverage and resolution.** \[This dataset covers 320 Brazillian school children between the year of 2024 to 2025. its coverage is in brazil although the exact place city or date is not specefied in this dataset. The dataset is cross-sectional which means that they represent observations collected during a specefic study period and not annual measurements over time. And each row represents one child its different variables related to it.\]
 
-**Licence.** \[Find the licence declaration and put the shorthand here. If you cannot find it, say here and complete section 3.2.\]
+**Licence.** \[This dataset is published under the Creative Commons Attribution 4.0 International (CC BY 4.0) licence.\]
 
-**Access.** \[How you got it, and whether a future user could get it the same way. Include the date you retrieved it if it is from a website, as sometimes web portals or search algorithms can change and make your first search method difficult to replicate.\]
+**Access.** \[I accessed this dataset on the Mendeley Data website https://data.mendeley.com/datasets/h27yvy7986/2 which is publicly available for everyone to access and its CSV files are also easily accessible and downloadable.\]
 
-**Known problems.** \[What is wrong with it on a first look-through? Are there any missing years, survey answers, changed definitions, inconsistent identifiers, or NA values, etc. in the dataset?\]
+**Known problems.** \[After examining the CSV and the excel files there was not alot of inconsistency but there were some missing values and the dataset has 320 observations and not every supported full set of information.\]
 
 ```{r source-1-load}
-# Load the RAW file, as received into this code block. The code below when uncommented will read it from your final project / RProject folder, and show the first x (in this case I've piped to show 6) lines. Change as needed.
+ {r source-1-load}
 
-##### IF FILTERING SENSITIVE DATA... so as not to show identifying information on GitHub, you can do that! I am not expecting you to have fully cleaned an entire dataset yet if you are working with large data.
+#loading the required libraries
+library(readr)
+library(dplyr)
 
-# Show the reader its actual shape.
-
-# raw_1 <- read_csv("data/raw/[filename].csv") # example for a csv file
-# glimpse(raw_1) |> select(1:6) 
+#loading the raw and unfiltered mendeley dataset
+ raw_1 <- read_csv("data/raw/dataset_depressao_infantil_public.csv") # example for a csv file
+ glimpse(raw_1) |> select(1:6) 
 ```
 
-\[One or two sentences on what the output above shows. Feel free to note anything new or hard for you to initially understand in the structure, types, source, or size.\]
+\[It loads my original data for early childhood depression due to electronic usage. It shows the number of rows, columns and variables it includes. it also displays the first six rows without modifying the original one.\]
 
-## 2.2.2 \[name 2\]
+## 2.2.2 \[Average Daily Screen Time for Children\]
 
-\[Repeat the full structure above for every source you are using. Copy the headings and the loaded source's descriptive sentences below.\]
+**Producer and authority.** \[This dataset was uploaded to kaggle by one of its users where different individuals upload datasets for educational purposes. As it is not a publically verified website it does not have a specefic grant or mandate.\]
+
+**Original Dataset Purpose.** \[ This datasets original purpose was to determine the childs average daily screen time and how it is different depending on their age, gender and there screen usage in different areas.\]
+
+**Collection method.** \[ The original method of the datasets collection is not mentioned in the CSV file. It is not clear whether the data came from surveys, real life data collection or other methods.
+
+**Coverage and resolution.** \[ The dataset covers children from the age of 5-15 years and it contains variables such as gender, age, screen time and its different types and the day type weekdays or weekend.
+
+**Licence.** \[ Released under MIT License
+
+Copyright (c) 2013 Mark Otto.
+
+Copyright (c) 2017 Andrew Fong.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\]
+
+**Access.** \[ This dataset is easily accessible throught the kaggle website https://www.kaggle.com/datasets/ak0212/average-daily-screen-time-for-children?resource=download The file was downloaded under the CSV format but in order to access this file for the future users they might need to make a kaggle account or to link it with their google account in order to access it.\]
+
+**Known problems.** \[ This file did not have any missing values and it did not show any inconsistency in the data.\]
+
 
 ```{r source-2-load}
-
+ {r source-2-load}
+#loading the raw kaggle dataset
+raw_2 <- read_csv("data/raw/screen_time.csv")
+#showing the datasets original structure 
+glimpse(raw_2) |> select(1:6)
 ```
+
+\[it loads the original dataset for this file and all its variables as well and also the first 6 rows of the dataset and its information as well\]
 
 ## 2.3: Investigated and rejected sources
 
-\[One or two sentences per rejected source: what it was, why you checked it out. Some examples: licensing permissions, resolution mismatch, paywall, abandoned since 2017, aggregated beyond its usefulness, changed project idea, etc.
-
-Documenting why a source was rejected saves the next person the time you spent finding out the best source for your project. Negative results are not bad news!\]
+\[I initially considered using the statistics canada dataset because it was a reliable resource and it provided an average over canada of children screen time using but it was only binded to one point and i thought it would be a outlier in my dataset because it was aggregated based on population in differen provinces and it did not provide the details i needed in the dataset.\]
 
 ## 2.4: What I could not find
 
-\[If you changed your project idea due to lack of data, explain what you expected to find more easily but does not, or exists and is not obtainable. Name who holds it, if you know the source. Absence is a finding about how an organization or community's data is managed.\]
+\[I couldnt find data on different technological equipment and its usage because it was mostly based on heavy analytical report and not on data collection which initially led to changing my project and also i needed more easy access to datasets which were not in this case.\]
 
 ----
 
@@ -120,24 +143,33 @@ Documenting why a source was rejected saves the next person the time you spent f
 
 ```{r licence-table, echo=FALSE}
 # Note how there is a name in each code block, this 
+library(tibble)
+library(knitr)
 licences <- tribble(
   ~Source,          ~Licence,                    ~Attribution_required, ~Attribution_given,
-  "[source name 1]",  "[e.g. OGL Canada 2.0]",   "Yes",                 "Yes, see below",
-  "[source name 2]",  "[licence]",                 "[Yes/No]",            "[Yes/No]"
+  "[Mendeley - Childhood Depression]",  "[CC BY 4.0]",   "Yes",                 "Yes, see below",
+  "[Kaggle - Average Daily Screen Time for Children]",  "[MIT]",                 "[Yes]",            "[Yes]"
 )
 
 knitr::kable(licences)
 ```
 
-**Attribution statements.** \[Reproduce the exact attribution each licence requires, aka the wording the licence specifies.\]
+**Attribution statements.** \[schaidhauer, flavia (2026), “Dataset: Screen time, social media use, physical activity and depressive symptoms (CDI) in Brazilian schoolchildren (n = 320)”, Mendeley Data, V2, doi: 10.17632/h27yvy7986.2,  The Files associated with this dataset are licensed under a Creative  Commons Attribution 4.0 Internation licence.https://creativecommons.org/licenses/by/4.0/
+https://www.kaggle.com/datasets/ak0212/average-daily-screen-time-for-children?resource=download , Released under MIT License
 
-## 3.2: Unresolved licensing \[If you were able to find all licencing, delete this\]
+Copyright (c) 2013 Mark Otto.
 
-\[For any source where you could not determine the licence include: what you tried, who you contacted or what you found, and what you concluded about permissible use based on the project. "Unknown, this is my search or web investigation trail" is worth full marks.\]
+Copyright (c) 2017 Andrew Fong.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\]
 
 ## 3.3: Downstream permissions
 
-\[What can someone else do with your data project *output*? If you combine sources under incompatible licences, your merged product may be more restricted than either input was. Work out what licence you can actually offer, and state it. If all open data, state it.\]
+\[The Mendeley dataset was under the CC BY 4.0 licence which allows users to share, reuse and modify as long as the credit is given to the proper modifier and its orginal creator and the kaggle dataset is under the MIT licence which also easy to access and modify. And for my project specefically I haven't decided if it should be under any licencing or it should be an open source because my dataset consists of childrens data although it was open and easily available but if considering i would use under the MIT license which would be readily available to anyone.\]
 
 ----
 
@@ -145,11 +177,11 @@ knitr::kable(licences)
 
 \[If your data does not describe people, say so explicitly and explain why you are confident of that then move on.\]
 
-**Consent.** \[If you collected it: what participants agreed to your survey, and how was their data and consent was recorded. If someone else collected it: what were people told at the time, and does your use fall inside that? If it is your own data, what are you comfortable with people using it for in the future if someone else downloaded it?\]
+**Consent.** \[Both the datasets were available online and i did not need consent in order to access this dataset but due to the childrens age and family setting was in the data it might include minor privacy issues but it is not a major one because it did not include any names or addresses.\]
 
-**Identifiability.** \[How many people are in the smallest reported cell? How small is the population of the place or community you are describing? If it does reference people's data in a public manner (sports stats like goals or time), that is public data. If it is a conversation from a person who did not consent for their interview to be shared, it's not.\]
+**Identifiability.** \[The Mendeley dataset consists of 320 students whereas the kaggle dataset has 198 which means it is a good number but not a very big number for the dataset.\]
 
-**How sensitive data will be used.** \[Suppression of identifiable information in your published dataset, aggregation to a coarser unit (bigger groups etc), withholding identifying variables, or a decision not to publish part of the dataset.\]
+**How sensitive data will be used.** \[It is not sensitive data because as it is public information and is easily accessible by everyone which means permission and consent was already given to the parent reasearcher or collaborator in the dataset.\]
 
 ---
 
@@ -157,27 +189,27 @@ knitr::kable(licences)
 
 ## 5.1: Excluded data from the audit
 
-\[Every published dataset will demonstrate what an author aimed to prioritize, and lack of data or missing data can show the same. If you removed a column of the unprocessed dataset, describe what it was, and why you decided to remove it. That could be things like sensitive variables, time periods, places, categories. How could this exclusion affect your data points in your analysis? \]
+\[For now i did not exclude anything from the data as i have not yet studied the dataset completely and i do not know how much information it would give me and how it would affect my working. \]
 
 ## 5.2: Who could be harmed
 
-\[Name a plausible misuse and who would be on the receiving end. Think about parties with an interest in the subject you chose, who are not your intended audience.\]
+\[Big phone companies or technology companies could use it as a misuse as they target childrens around that age that have a high potential usage of their technology which gives them good profits but is not good for the children health wise.\]
 
 ## 5.3: Unreleased working data
 
-\[If there is anything in your working data you would not publish, say what it was and why. If there is nothing, describe why it is okay to publish the working / raw dataset.\]
+\[I would not add the household relationship data in the Mendeley dataset where they discuss the parents relationship towards the child as it is personal and very private.\]
 
 ---
 
 # 6: Data Stewardship
 
-**Where it lives.** \[Repository, platform, or institution. It's okay to be realisitic about the project after this course ends, as a GitHub account you stop paying attention to in January is a real answer.\]
+**Where it lives.** \[I would keep it in github repository and make it public so that other people are able to see it as well because that is to my knowledge the safest option and people can access information from it as well, because as i was doing my own research i saw github repository and there numerous files on different datasets.\]
 
-**Who maintains it.** \[If nobody, say nobody.\]
+**Who maintains it.** \[I will be solely responsible for the maintenance of the file even if i donot maintain every month i will make it public and allow access to other people so that if they want to take a look at it as well make some changes to it.\]
 
-**Formats and dependencies.** \[Will your files open in ten years? Consider what could break if someone tried it in 2036. The package versions, data format, API, links to sources etc.\]
+**Formats and dependencies.** \[For now the files are stored in CSV format and in the R Markdown files for analysis and documentation. As we know that CSV is a widely known format and is easily accessible and downloadable it should be accessible in the future. The R code depends on readr, dplyr, tibble and knitr packages for now but it might change in the future depending on how the project leads to and to make the project easily accessible in 2036. I will document the R version, the package versions and all the data sources that are used in my analysis and also include a README file where I explain all the code and its basis in order to understand it easily. Since the original users might change the website page as I have included before I will also add the URLs and the access dates separately in order to attain the data. \]
 
-**Lifespan.** \[How long is this meaningfully usable before it needs updating or should be retired?\]
+**Lifespan.** \[I think this project would be useful in the future because might still use data to see the screen time of children if it changes in the future or still remains the same or increases due to technological advancements.\]
 
 -----
 
@@ -189,7 +221,7 @@ Your `AI-LOG.md` will live in this repository and is committed alongside the wor
 
 **AI log:** `AI-LOG.md` \[— maintained from \[starting date\] and committed alongside each stage of work.\]
 
-\[One short paragraph summarizing your pattern of AI use (if any) so far: which stages, what for, etc. State the model you are using, such as ChatGPT or Claude. If you are continuing to chat to a Gemeni search agent after looking something up, that counts too! If you have not used AI tools at all, say so here and make sure `AI-LOG.md` says the same.\]
+\[I used OpenAI's ChatGPT (GPT-6) which helped me understanding the project and its guidlines. I mainly used to understand what the assignment is requiring and to understand a bit more on the datasets and also different terms that were unknown to me such as data stewardship about the licencing as well. I also asked AI to help me understand how to load the dataset in the R code that was uploaded in the file to understand it better, but all the final decisions on which dataset to use and how to approach was based on my intuitive thinking. I only reviewed the AI work and I am responsible for the accuracy of my Final work.\]
 
 \[**Reminder: the text in this document must be written in your own words.**\]
 
@@ -202,16 +234,4 @@ Your `AI-LOG.md` will live in this repository and is committed alongside the wor
 sessionInfo()
 ```
 
-```{=html}
-<!--
-BEFORE YOU SUBMIT
 
-- Does your file render from a clean session (wiping the environment and history with no errors?
-- Are all paths relative? No setwd(), no C:/Users/yourname/
-- Is every package you used declared in the setup chunk?
-- Is AI-LOG.md committed and current?
-- Could a stranger read this and know what you are hoping to do in your project, what your data is, where it came
-  from, and what others are allowed to do with it?
-- Have you deleted every bracketed prompt including this comment block?
--->
-```
