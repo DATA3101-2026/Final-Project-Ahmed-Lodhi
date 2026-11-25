@@ -1,0 +1,67 @@
+age,gender,screen_type,day_type,avg_hours,sample_size
+5,Male,Total,Weekday,1.55,500
+5,Male,Total,Weekend,1.93,500
+5,Female,Total,Weekday,1.45,500
+5,Female,Total,Weekend,1.9,500
+5,Other/Prefer not to say,Total,Weekday,1.5,500
+5,Other/Prefer not to say,Total,Weekend,1.95,500
+6,Male,Total,Weekday,2.02,480
+6,Male,Total,Weekend,2.49,480
+6,Female,Total,Weekday,1.95,480
+6,Female,Total,Weekend,2.46,480
+6,Other/Prefer not to say,Total,Weekday,2,480
+6,Other/Prefer not to say,Total,Weekend,2.49,480
+7,Male,Total,Weekday,2.55,460
+7,Male,Total,Weekend,3.22,460
+7,Female,Total,Weekday,2.42,460
+7,Female,Total,Weekend,3.19,460
+7,Other/Prefer not to say,Total,Weekday,2.5,460
+7,Other/Prefer not to say,Total,Weekend,3.02,460
+8,Male,Total,Weekday,3.03,440
+8,Male,Total,Weekend,3.86,440
+8,Female,Total,Weekday,2.95,440
+8,Female,Total,Weekend,3.62,440
+8,Other/Prefer not to say,Total,Weekday,3,440
+8,Other/Prefer not to say,Total,Weekend,3.89,440
+9,Male,Total,Weekday,3.63,420
+9,Male,Total,Weekend,4.46,420
+9,Female,Total,Weekday,3.39,420
+9,Female,Total,Weekend,4.19,420
+9,Other/Prefer not to say,Total,Weekday,3.5,420
+9,Other/Prefer not to say,Total,Weekend,4.32,420
+10,Male,Total,Weekday,4.05,400
+10,Male,Total,Weekend,5.29,400
+10,Female,Total,Weekday,3.87,400
+10,Female,Total,Weekend,4.72,400
+10,Other/Prefer not to say,Total,Weekday,4,400
+10,Other/Prefer not to say,Total,Weekend,5.11,400
+11,Male,Total,Weekday,4.55,380
+11,Male,Total,Weekend,5.89,380
+11,Female,Total,Weekday,4.39,380
+11,Female,Total,Weekend,5.44,380
+11,Other/Prefer not to say,Total,Weekday,4.5,380
+11,Other/Prefer not to say,Total,Weekend,5.61,380
+12,Male,Total,Weekday,5.15,360
+12,Male,Total,Weekend,6.42,360
+12,Female,Total,Weekday,4.88,360
+12,Female,Total,Weekend,5.82,360
+12,Other/Prefer not to say,Total,Weekday,5,360
+12,Other/Prefer not to say,Total,Weekend,6.16,360
+13,Male,Total,Weekday,5.59,340
+13,Male,Total,Weekend,6.93,340
+13,Female,Total,Weekday,5.36,340
+13,Female,Total,Weekend,6.6,340
+13,Other/Prefer not to say,Total,Weekday,5.5,340
+13,Other/Prefer not to say,Total,Weekend,7.08,340
+14,Male,Total,Weekday,6.19,320
+14,Male,Total,Weekend,7.79,320
+14,Female,Total,Weekday,5.81,320
+14,Female,Total,Weekend,7.25,320
+14,Other/Prefer not to say,Total,Weekday,6,320
+14,Other/Prefer not to say,Total,Weekend,7.2,320
+15,Male,Total,Weekday,6.59,300
+15,Male,Total,Weekend,8.14,300
+15,Female,Total,Weekday,6.37,300
+15,Female,Total,Weekend,8.19,300
+15,Other/Prefer not to say,Total,Weekday,6.5,300
+15,Other/Prefer not to say,Total,Weekend,7.96,300
