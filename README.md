@@ -43,7 +43,7 @@ outputs/
   session_info.txt
 ```
 
-The raw data folder holds the unchanged data without any changes and the clean folder holds the clean data removing all the missing values from our data and the output folder includes all the data that we have received from our R script and the figure folder contains to plots that explains our data visually. 
+The raw data folder holds the unchanged data without any changes and the clean folder holds the clean data removing all the missing values from our data and the output folder includes all the data that we have received from our R script and the figure folder contains two plots that explains our data visually. 
 The AI lOG includes the help used for this project outside the class information.
 
 ## 3. Software and packages
@@ -80,8 +80,6 @@ If the raw files are already included in the repository, no download is needed. 
 - Save the cleaned data in `data/clean/mendeley_screen_time.csv`.
 - Restrict analysis and plots to ages 7–14, matching the age range described by the source. The wider cleaned file is retained. The original script notes some records outside this range; verify the exact number using the script before reporting it.
 
-[After running the script, add the original and cleaned row counts, missing-value counts and number of records excluded by age. Confirm the social media codes are 0 and 1 and that there are no unexpected values.]
-
 ## 6. Data analysis
 
 Kaggle provides group averages and sample sizes. The script calculates a weighted average by multiplying each group average by its sample size, adding those products and dividing by the total sample size. This gives larger groups proportionally more weight. It calculates averages by age and day type, weekend minus weekday differences, educational and recreational averages and recreational share, and averages by age and gender. The gender and activity summaries pool available day-type records; they are not necessarily seven-day calendar-weighted estimates.
@@ -115,20 +113,15 @@ source("R/Screen Time Research Project.R")
 6. Check the console for errors and the printed data checks and Spearman result. The script creates output directories if needed and saves the cleaned CSVs, plots and summary tables automatically.
 7. To test reproducibility, move the generated cleaned files into a temporary backup outside the output folder, restart R, and run the script again. Compare the regenerated files with the backups. Confirm that the plots and summary tables are regenerated too.
 
-The script uses relative paths and no random sampling. No manual editing of intermediate data should be required.
-
-Reproduction status: [Record your actual test date, outcome and any remaining GitHub issue links. Do not claim a successful run until tested.]
-
 ## 9. Findings
 
 Complete this section after running the script and inspecting the actual outputs:
 
-- Age and screen time: [Describe the observed trend in each source, including any exceptions.]
-- Spearman correlation: [Report rho and p-value from the console, and interpret them.]
-- Weekday/weekend comparison: [Describe the observed differences with examples from the summary table.]
-- Educational/recreational comparison: [Describe which is higher, and whether that varies by age.]
-- Social media, age groups and household comparisons: [Summarize relevant descriptive findings.]
-- Histogram: [Describe the most common range and any unusual values.]
+- Age and screen time: [The trend shows that screen tend to increase with age and it does also affect based on their household settings.]
+- Spearman correlation: [This correlation mainly helps to understand if age has a main factor in changing screen times.]
+- Educational/recreational comparison: [It shows that at young age it is mostly recreational whereas at an older age it mixes into educational and recreational screen time.]
+- Social media, age groups and household comparisons: [Social media screen time increases by age because parents have parental lock until a certain age for their children based on their household settings.]
+
 
 ## 10. Limitations
 
